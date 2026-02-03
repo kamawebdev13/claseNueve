@@ -3,18 +3,19 @@ async function obtenerVengador() {
 
     try {
 
-        const response = await (`https://akabab.github.io/superhero-api/api/id/346.json`)
+        const response = await fetch(`https://akabab.github.io/superhero-api/api/id/346.json`)
         if (!response.ok) {
             throw new Error("AVENGER NOT FOUND!");
-            const vengador = await response.json();
-
-            const nombreReal = vengador.biography.fullname;
-            const inteligencia = vengador.powerstats.intelligence;
-
-            console.log(`Nombre Real: ${nombreReal}`);
-            console.log(`Inteligencia: ${inteligencia}`);
 
         }
+
+        const vengador = await response.json();
+
+        const nombreReal = vengador.biography.fullName;
+        const inteligencia = vengador.powerstats.intelligence;
+
+        console.log(`Nombre Real: ${nombreReal}`);
+        console.log(`Inteligencia: ${inteligencia}`);
 
     } catch (error) {
 
@@ -25,4 +26,4 @@ async function obtenerVengador() {
     }
 
 
-}
+} obtenerVengador(346)
